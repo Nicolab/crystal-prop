@@ -19,7 +19,7 @@ module PropMixin
   end
 
   macro included
-    include Prop::Getter
+    include Prop
 
     macro finished
       @proxy_called = true

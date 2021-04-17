@@ -24,12 +24,12 @@ macro inject_props
   end
 
   getter with_default : String = "default value"
-  getter with_default_hooked : String = "default value"
+  property with_default_hooked : String = "default value"
 
   getter with_default_and_args : String = "default value with args", {str: "b", num: 2}
-  getter with_default_and_args_hooked : String = "default value with args", {str: "b", num: 2}
+  property with_default_and_args_hooked : String = "default value with args", {str: "b", num: 2}
 
-  getter with_default_and_args_and_factory : String = "default value with args and factory",
+  property with_default_and_args_and_factory : String = "default value with args and factory",
     {str: "c", num: 3} do |default_value|
     # should read self
     default_value.should eq "default value with args and factory"

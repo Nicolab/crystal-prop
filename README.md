@@ -4,6 +4,9 @@
 
 Properties utilities for Crystal.
 
+Mixin module that should be included in a class or a struct.
+This module improves the std's accessor macros (`getter`, `getter!`, `getter?`, `property`, ...).
+
 ## Installation
 
 1. Add the dependency to your `shard.yml`:
