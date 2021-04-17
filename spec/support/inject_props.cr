@@ -71,4 +71,8 @@ macro inject_props
     # should write
     @with_default_and_args_and_factory = "default value with args and factory rehooked"
   end
+
+  def initialize
+    init_props
+  end
 end

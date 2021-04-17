@@ -17,7 +17,22 @@ module Prop
 
       macro finished
         {% verbatim do %}
-          def initialize
+          # Init the props.
+          # This method should be called in each `initialize` method
+          # when `Prop::Getter` is included in a `class` or a `struct`.
+          #
+          # ```
+          # class Foo
+          #   include Prop::Getter
+          #
+          #   # getter ...
+          #
+          #   def initialize
+          #     init_props
+          #   end
+          # end
+          # ```
+          def init_props
             {% for k, prop in PROPS %}
               {% if prop[:block] %}
                 {% if prop[:block].args.size > 0 %}
