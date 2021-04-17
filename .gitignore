@@ -1,0 +1,12 @@
+/local/
+/.local/
+/~/
+/home/
+
+# /docs/
+/lib/
+/bin/
+/.shards/
+*.dwarf
+
+/shard.lock

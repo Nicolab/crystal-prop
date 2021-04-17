@@ -1,0 +1,22 @@
+name: prop
+version: 0.1.0
+crystal: ">= 0.36.1"
+license: MIT
+
+authors:
+  - Nicolas Talle <dev@nicolab.net>
+
+targets:
+  prop:
+    main: src/prop.cr
+
+crystalline:
+  main: spec/prop_spec.cr
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: ~> 0.14.1
+  testify:
+    github: Nicolab/crystal-testify
+    version: ~> 1.0.1
