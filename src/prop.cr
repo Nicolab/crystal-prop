@@ -17,14 +17,16 @@ module Prop
     macro finished
       {% verbatim do %}
         # Init the props.
-        # This method should be called in each `initialize` method
-        # when `Prop::Getter` is included in a `class` or a `struct`.
+        # This method should be called in each `initialize` method,
+        # when `Prop` is included in a `class` or a `struct`.
         #
         # ```
         # class Foo
-        #   include Prop::Getter
+        #   include Prop
         #
         #   # getter ...
+        #   # property ...
+        #   # define ...
         #
         #   def initialize
         #     init_props
@@ -60,7 +62,7 @@ module Prop
 
           ::{{macro_name}} {{name}}
         {% else %}
-          {% raise "#{@type.class}.getter doesn't support " + name.class_name %}
+          {% raise "#{@type.class}.define doesn't support " + name.class_name %}
         {% end %}
       {% end %}
     end
@@ -79,7 +81,7 @@ module Prop
 
           ::{{macro_name}} {{name}}
         {% else %}
-          {% raise "#{@type.class}.entry doesn't support " + name.class_name %}
+          {% raise "#{@type.class}.define doesn't support " + name.class_name %}
         {% end %}
       {% end %}
     end
@@ -99,7 +101,7 @@ module Prop
 
           ::{{macro_name}} {{name}}
         {% else %}
-          {% raise "#{@type.class}.entry doesn't support " + name.class_name %}
+          {% raise "#{@type.class}.define doesn't support " + name.class_name %}
         {% end %}
       {% end %}
     end
