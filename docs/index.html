@@ -71,10 +71,11 @@
 
 <p><a href="https://github.com/Nicolab/crystal-prop/actions"><img src="https://github.com/Nicolab/crystal-prop/workflows/CI/badge.svg?branch=master" alt="CI Status"/></a> <a href="https://github.com/Nicolab/crystal-prop/releases"><img src="https://img.shields.io/github/release/Nicolab/crystal-prop.svg" alt="GitHub release"/></a> <a href="https://nicolab.github.io/crystal-prop/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs"/></a></p>
 
-<p>Properties utilities for Crystal.</p>
+<p>Properties utilities for Crystal lang.</p>
 
 <p>Mixin module that should be included in a class or a struct.
-This module improves the std's accessor macros (<code>getter</code>, <code>getter!</code>, <code>getter?</code>, <code>property</code>, ...).</p>
+This module improves the std's accessor macros (<code>getter</code>, <code>getter!</code>, <code>getter?</code>, <code>property</code>, ...).
+It provide a kind of IoC (Inversion Of Control).</p>
 
 <h2><a id="installation" class="anchor" href="#installation">
   <svg class="octicon-link" aria-hidden="true">
@@ -97,6 +98,11 @@ This module improves the std's accessor macros (<code>getter</code>, <code>gette
 </a>Usage</h2>
 
 <p>📘 <a href="https://nicolab.github.io/crystal-prop/">API doc</a>.</p>
+
+<blockquote>If you are looking for a validator to validate data before instantiating a class or a struct,
+  you may be interested by <a href="https://github.com/Nicolab/crystal-validator">validator</a>.
+  This <a href="https://github.com/Nicolab/crystal-validator">validator</a> shard uses <code><a href="Prop.html">Prop</a></code> internally
+  to define and handle validation rules on each instance variable.</blockquote>
 
 <h2><a id="development" class="anchor" href="#development">
   <svg class="octicon-link" aria-hidden="true">

@@ -82,11 +82,51 @@
     Overview
   </h2>
 
-  <p>Prop utilities.
-Mixin module that should be included in a class or a struct.
+  <p>Prop utilities.</p>
+
+<p>Mixin module that should be included in a class or a struct.
 This module improves the std's accessor macros (<code>getter</code>, <code>getter!</code>, <code>getter?</code>, <code>property</code>, ...).</p>
 
-<blockquote>See <a href="https://github.com/Nicolab/crystal-prop/">README</a> for more details and examples.</blockquote>
+<p>If a block is defined to an instance variable, it will be executed on the
+initialization of the instance (called by each <code>initialize</code>).</p>
+
+<pre><code class="language-crystal">property my_var : <span class="t">String</span> <span class="o">=</span> <span class="s">&quot;default value&quot;</span> <span class="k">do</span> <span class="o">|</span>default_value<span class="o">|</span>
+  <span class="c"># Remove leading and trailing whitespace</span>
+  <span class="c"># &quot;    hello    &quot;.strip # =&gt; &quot;hello&quot;</span>
+  @my_var <span class="o">=</span> @my_var.strip
+<span class="k">end</span></code></pre>
+
+<p>You can provide arguments:</p>
+
+<pre><code class="language-crystal">property my_var : <span class="t">String</span> <span class="o">=</span> <span class="s">&quot;default value&quot;</span>, <span class="s">&quot;any type of argument&quot;</span> <span class="k">do</span> <span class="o">|</span>default_value, args<span class="o">|</span>
+  puts args
+  @my_var <span class="o">=</span> @my_var.strip
+<span class="k">end</span></code></pre>
+
+<p>The behavior can easily be extended:</p>
+
+<pre><code class="language-crystal"><span class="k">module</span> <span class="t">CustomProp</span>
+  <span class="k">macro</span> included
+    <span class="k">include</span> <span class="t">Prop</span>
+
+    <span class="k">macro</span> finished
+      {% <span class="k">verbatim</span> <span class="k">do</span> %}
+        {% <span class="k">for</span> k, prop <span class="k">in</span> <span class="t">PROPS</span> %}
+          {% <span class="k">if</span> prop[<span class="n">:args</span>] %}
+            some_ioc_method({{prop[<span class="n">:name</span>]}}: { {{prop[<span class="n">:args</span>].double_splat}} })
+          {% <span class="k">end</span> %}
+        {% <span class="k">end</span> %}
+      {% <span class="k">end</span> %}
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+
+<p>See <a href="https://github.com/Nicolab/crystal-prop/">README</a> for more details.</p>
+
+<blockquote>If you are looking for a validator to validate data before instantiating a class or a struct,
+  you may be interested by <a href="https://github.com/Nicolab/crystal-validator">validator</a>.
+  This <a href="https://github.com/Nicolab/crystal-validator">validator</a> shard uses <code><a href="Prop.html">Prop</a></code> internally
+  to define and handle validation rules on each instance variable.</blockquote>
 
 
 
