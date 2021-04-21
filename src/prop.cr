@@ -61,8 +61,6 @@ module Prop
     PROPS = {} of String => ASTNode
 
     macro finished
-      @__initialized_props = false
-
       {% verbatim do %}
         # Init the props.
         #
@@ -91,9 +89,7 @@ module Prop
         #   end
         # end
         # ```
-        def init_props : {{@type.name}}
-          return self if @__initialized_props
-
+        def init_props
           {% for k, prop in PROPS %}
             {% if prop[:block] %}
               {% if prop[:block].args.size > 0 %}
@@ -111,9 +107,6 @@ module Prop
               {{prop[:block].body}}
             {% end %}
           {% end %}
-
-          @__initialized_props = true
-          return self
         end
 
         {% unless @type.constants.map(&.symbolize).includes?(:DISABLE_AUTO_INIT_PROPS) %}
