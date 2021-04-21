@@ -5,11 +5,19 @@
 # information and documentation: https://github.com/Nicolab/crystal-prop
 # ------------------------------------------------------------------------------
 
-require "./prop_mixin"
-require "./inject_props"
-require "./inject_init_props"
-require "./class"
-require "./struct"
-require "./init_class"
-require "./init_struct"
-require "./**"
+class InitPropStructTest < Testify::Test
+  def new_instance
+    new_instance(InitPropStruct.new)
+  end
+
+  def new_instance(str : String)
+    new_instance(InitPropStruct.new(str))
+  end
+
+  def test_instance
+    new_instance.should be_a InitPropStruct
+  end
+
+  # Injects all init tests
+  inject_init_tests
+end

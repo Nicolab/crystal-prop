@@ -5,11 +5,7 @@
 # information and documentation: https://github.com/Nicolab/crystal-prop
 # ------------------------------------------------------------------------------
 
-require "./prop_mixin"
-require "./inject_props"
-require "./inject_init_props"
-require "./class"
-require "./struct"
-require "./init_class"
-require "./init_struct"
-require "./**"
+# Class to test
+class InitPropClass
+  inject_init_props
+end
