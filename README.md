@@ -2,10 +2,11 @@
 
 [![CI Status](https://github.com/Nicolab/crystal-prop/workflows/CI/badge.svg?branch=master)](https://github.com/Nicolab/crystal-prop/actions) [![GitHub release](https://img.shields.io/github/release/Nicolab/crystal-prop.svg)](https://github.com/Nicolab/crystal-prop/releases) [![Docs](https://img.shields.io/badge/docs-available-brightgreen.svg)](https://nicolab.github.io/crystal-prop/)
 
-Properties utilities for Crystal.
+Properties utilities for Crystal lang.
 
 Mixin module that should be included in a class or a struct.
 This module improves the std's accessor macros (`getter`, `getter!`, `getter?`, `property`, ...).
+It provide a kind of IoC (Inversion Of Control).
 
 ## Installation
 
@@ -22,6 +23,11 @@ This module improves the std's accessor macros (`getter`, `getter!`, `getter?`, 
 ## Usage
 
 📘 [API doc](https://nicolab.github.io/crystal-prop/).
+
+> If you are looking for a validator to validate data before instantiating a class or a struct,
+  you may be interested by [validator](https://github.com/Nicolab/crystal-validator).
+  This [validator](https://github.com/Nicolab/crystal-validator) shard uses `Prop` internally
+  to define and handle validation rules on each instance variable.
 
 ## Development
 
