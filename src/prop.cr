@@ -126,6 +126,13 @@ module Prop
               init_props
               {% initialized = true %}
             end
+
+            {% if @type.superclass %}
+              def initialize(*args)
+                super
+                init_props
+              end
+            {% end %}
           {% end %}
         {% end %}
       {% end %}
