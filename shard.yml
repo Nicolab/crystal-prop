@@ -1,5 +1,5 @@
 name: prop
-version: 0.7.0
+version: 0.7.1
 crystal: ">= 0.36.1"
 license: MIT
 
@@ -16,7 +16,7 @@ crystalline:
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 0.14.1
+    version: ~> 0.14.2
   testify:
     github: Nicolab/crystal-testify
     version: ~> 1.0.1
