@@ -107,6 +107,8 @@ module Prop
               {{prop[:block].body}}
             {% end %}
           {% end %}
+
+          self
         end
 
         {% unless @type.constants.map(&.symbolize).includes?(:DISABLE_AUTO_INIT_PROPS) %}
